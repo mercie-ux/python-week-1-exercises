@@ -152,7 +152,7 @@ def get_wallet_details():
         Tuple containing (wallet_name, balance)
     """
     # TODO: Return a tuple with wallet name and balance
-    return ("wallet_name", 50.0)
+    return ("satoshi_wallet", 50.0)
 
 def get_tx_status(tx_pool, txid):
     """Get the status of a transaction from the mempool.
@@ -179,7 +179,7 @@ def unpack_wallet_info(wallet_info):
     """
     # TODO: Unpack wallet_info tuple into name and balance, then format the return string
     name, balance = wallet_info
-    return f"Wallet '{name}' has a balance of {balance} BTC."
+    return f"Wallet {name} has a balance of {balance} BTC."
 
 
 def calculate_sats(btc: float) -> int:
@@ -227,9 +227,9 @@ def validate_block_height(height: Union[int, float, str]) -> Tuple[bool, str]:
         return False, "Block height must be an integer."
     if height < 0:
         return False, "Block height cannot be negative."
-    if height <= 800000:
-        return False, "Block height is within a realistic range."
-    return True, "Block height is valid."
+    if height > 800000:
+        return False, "Block height exceeds the realistic range."
+    return True, "valid block height."
 
 
 def halving_schedule(blocks: List[int]) -> Dict[int, int]:
