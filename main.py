@@ -224,11 +224,11 @@ def validate_block_height(height: Union[int, float, str]) -> Tuple[bool, str]:
     # TODO: Check that height is not negative
     # TODO: Check that height is within a realistic range (e.g., <= 800,000)
     if not isinstance(height, int):
-        return False, "Block height must be an integer."
+        return False, "Block height must be an integer"
     if height < 0:
-        return False, "Block height cannot be negative."
+        return False, "Block height cannot be negative"
     if height > 800000:
-        return False, "Block height exceeds the realistic range."
+        return False, "Block height seems unrealistic"
     return True, "Valid block height"
 
 def halving_schedule(blocks: List[int]) -> Dict[int, int]:
