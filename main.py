@@ -179,7 +179,7 @@ def unpack_wallet_info(wallet_info):
     """
     # TODO: Unpack wallet_info tuple into name and balance, then format the return string
     name, balance = wallet_info
-    return f"Wallet {name} has balance: {balance} BTC."
+    return f"Wallet {name} has balance: {balance} BTC"
 
 
 def calculate_sats(btc: float) -> int:
@@ -229,8 +229,7 @@ def validate_block_height(height: Union[int, float, str]) -> Tuple[bool, str]:
         return False, "Block height cannot be negative."
     if height > 800000:
         return False, "Block height exceeds the realistic range."
-    return True, "Valid block height."
-
+    return True, "Valid block height"
 
 def halving_schedule(blocks: List[int]) -> Dict[int, int]:
     """Calculate block reward for given block heights based on halving schedule.
